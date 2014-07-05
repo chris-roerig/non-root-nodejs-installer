@@ -8,6 +8,11 @@ This is http://tnovelli.net/blog/blog.2011-08-27.node-npm-user-install.html dist
 **Confirmed working on:**
 * Ubuntu 14.04
 
+Let me know if you find success on other versions/platforms.
+
+Usage
+===
+
 ```
 bundle
 ruby install-node.rb
