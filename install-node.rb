@@ -13,7 +13,9 @@ end
 
 # get the user
 user = `whoami`.chomp
-puts "Hi #{user}! I will attempt to install NodeJS for you.".blue
+puts "Hi #{user}! I will attempt to install NodeJS for you."
+puts "If this installer fails have a look at:"
+puts "http://tnovelli.net/blog/blog.2011-08-27.node-npm-user-install.html".green
 puts "Shall we begin? [y|Y]"
 continue = gets.chomp.downcase
 
@@ -29,7 +31,7 @@ END
 # create .npmrc file
 `echo "#{npmrc}" > $HOME/.npmrc`
 
-# get find latest version of nodejs
+# find the latest version of nodejs
 dlpage = Nokogiri::HTML(open('http://www.nodejs.org/download'))
 links = dlpage.css('a')
 dllink = links.each { |a| break a['href'] if a.text =~ /node-v[\d\.]+\.tar\.gz/ }
@@ -39,7 +41,7 @@ version = filename[0, filename.rindex('.tar.gz')]
 puts "Downloading latest Node version #{filename}".blue
 `wget #{dllink} -P /tmp`
 
-if ! File.exist? "/tmp/#{filename}"
+unless File.exist? "/tmp/#{filename}"
   puts 'Seems like the tar.gz was not downloaded. Is the internet down?'.brown
   puts 'try again later'.brown
   exit
@@ -51,14 +53,14 @@ puts "Extracting to /tmp".blue
 puts "Configuring".blue
 %x[cd /tmp/#{version}/ && ./configure --prefix=$HOME/.local]
 
-puts "make-ing (this will take some time)".blue
+puts "make (this will take some time)".blue
 %x[cd /tmp/#{version} && make 2>&1]
 
 puts "make install".blue
 %x[cd /tmp/#{version}/ && make install]
 
-puts "Creating symlink".blue
-if ! File.exist? "/home/#{user}/.node_modules"
+unless File.exist? "/home/#{user}/.node_modules"
+  puts "Creating symlink".blue
   `ln -s .local/lib/node_modules $HOME/.node_modules`
 end
 
