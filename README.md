@@ -20,7 +20,7 @@ $ ruby install-node.rb
 
 ##Help
 
-If your getting the error
+* If you are getting the error
 
 ```
 Could not open library 'archive': archive: cannot open shared object file: No such file or directory. (LoadError)
@@ -33,4 +33,33 @@ You need to install the libarchive library.
 $ sudo apt-get install libarchive-dev
 ```
 
-Feel free to add improvments. 
+* If the installer finishes but you see the message
+
+```
+The script finished but it looks like there might have been trouble. Try again
+```
+
+First, in your terminal run:
+```
+$ export PATH=$HOME/.local/bin:$PATH
+```
+
+and then do
+```
+$ which npm
+```
+
+if you see something like
+
+```
+$ /home/chris/.local/bin/npm
+```
+
+then you just need to update your profile
+
+```
+$ echo "export PATH=$HOME/.local/bin:$PATH" >> ~/.profile
+```
+
+
+**Additions and suggestions welcome.**
