@@ -18,6 +18,11 @@ $ bundle
 $ ruby install-node.rb
 ```
 
+**Note:**
+On my i7 machine it takes **~6 minutes to complete** the installation.
+Be patient.
+
+
 ##Help
 
 * If you are getting the error
