@@ -89,7 +89,7 @@ Shall we begin? [y|Y]
     end
 
     error = "Failed to create #{npmrc_path}".red
-    raise no_link_error unless File.exist? npmrc_path 
+    raise error unless File.exist? npmrc_path 
   end
 
   def step_find_source 
