@@ -1,12 +1,18 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    archive (0.0.6)
+      ffi (~> 1.9.3)
+    ffi (1.9.3)
     mini_portile (0.6.0)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
+    ruby-progressbar (1.5.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  archive
   nokogiri
+  ruby-progressbar
