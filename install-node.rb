@@ -28,7 +28,7 @@ class NodeInstaller
     $USER  = ENV['USER']
     $HOME  = ENV['HOME']
 
-    # used through out the methods
+    # used throughout the methods
     @filename     = nil
     @version      = nil
     @dllink       = nil
