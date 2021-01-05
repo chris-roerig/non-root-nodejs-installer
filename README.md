@@ -1,3 +1,9 @@
+NOTICE: This project is outdated and has been archived.
+=======================================================
+
+
+
+
 non-root-nodejs-installer
 =========================
 
